@@ -1,0 +1,12 @@
+@import "../../mixins/flex-content-center";
+
+.pageNotFound {
+  height: 100vh;
+  text-align: center;
+  padding: 0 20px;
+  @include flex-content-center(column);
+
+  &__title {
+    font-size: 92px;
+  }
+}
