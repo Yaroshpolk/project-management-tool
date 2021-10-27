@@ -10,6 +10,9 @@ $btnColor1: #0052CC;
 .link {
   text-decoration: none;
   color: $btnColor1;
+  background-color: inherit;
+  border: 0;
+  outline: 0;
   &:hover {
     @include hoverable-item;
   }

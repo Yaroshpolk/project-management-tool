@@ -1,12 +1,20 @@
 import './Register.scss';
-import { Link } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function Register() {
+
+    const history = useHistory();
+
+    function register(evt) {
+        evt.preventDefault()
+        history.push('/signin')
+    }
+
     return (
         <div className='register'>
             <div className="register__window">
                 <h1 className="register__title">Регистрация</h1>
-                <form className="form register__form" name='formRegister'>
+                <form className="form register__form" name='formRegister' onSubmit={register}>
                     <fieldset className='register__fieldset'>
                         <label htmlFor='userName'>
                             <input
