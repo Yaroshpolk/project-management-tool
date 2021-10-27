@@ -1,5 +1,5 @@
 import './App.scss';
-import { Switch, Route } from "react-router-dom";
+import {Switch, Route, useHistory} from "react-router-dom";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PageNotFound from "../PageNotFound/PageNotFound";
@@ -11,7 +11,20 @@ import { useState } from "react";
 
 function App() {
 
-    const [isLogged, setIsLogged] = useState(true);
+    const [isLogged, setIsLogged] = useState(false);
+
+    const history = useHistory();
+
+    const handleRegister = (evt) => {
+        evt.preventDefault();
+        history.push('/signin');
+    }
+
+    const handleLogin = (evt) => {
+        evt.preventDefault();
+        setIsLogged(true);
+        history.push('/');
+    }
 
   return (
       <AppContext.Provider value= {{
@@ -25,12 +38,14 @@ function App() {
                       exact>
                   </ProtectedRoute>
                   <AuthRoute
-                      path = '/signin'>
-                      component = {<Login />}
+                      path = '/signin'
+                      component = {Login}
+                      handleLogin = {handleLogin}>
                   </AuthRoute>
                   <AuthRoute
-                      path = '/signup'>
-                      component = {<Register />}
+                      path = '/signup'
+                      component = {Register}
+                      handleRegister = {handleRegister}>
                   </AuthRoute>
                   <Route path = '*'>
                       <PageNotFound />

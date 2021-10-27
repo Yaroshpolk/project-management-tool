@@ -1,23 +1,13 @@
 import './Login.scss';
-import { Link, useHistory } from "react-router-dom";
-import {useState} from "react";
+import { Link } from "react-router-dom";
 
-function Login() {
-
-    const [isLogged, setIsLogged] = useState(true);
-
-    const history = useHistory();
-
-    function login(evt) {
-        evt.preventDefault()
-        history.push('/')
-    }
+function Login({ handleLogin }) {
 
     return (
         <div className='login'>
             <div className="login__window">
                 <h1 className="login__title">Авторизация</h1>
-                <form className="form login__form" name='formLogin' onSubmit={login}>
+                <form className="form login__form" name='formLogin' onSubmit={handleLogin}>
                     <fieldset className='login__fieldset'>
                         <label htmlFor='userEmail'>
                             <input

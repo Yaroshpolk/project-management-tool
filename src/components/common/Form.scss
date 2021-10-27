@@ -1,0 +1,55 @@
+@import '../scss/colors';
+@import '../scss/mixins/hoverable-item';
+
+.form {
+  & label {
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  & fieldset {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__input {
+    width: 100%;
+    background-color: inherit;
+    border: 1px solid #DFE1E6;
+    border-radius: 5px;
+    outline: 0;
+    padding: 15px;
+    font-size: 14px;
+    transition: border-color .4s;
+    &:focus {
+      border: 1px solid rgba($mainColor1, .6);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    margin-top: 40px;
+    border: 1px solid #0000;
+    border-radius: 5px;
+    padding: 15px 45px;
+    outline: 0;
+    color: #ffff;
+    font-size: 18px;
+    background-color: $mainColor1;
+    transition: opacity .5s;
+    &:hover {
+      @include hoverable-item;
+    }
+    &:active {
+      transition: opacity 0s;
+      opacity: .85;
+    }
+  }
+
+  &__message {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+}

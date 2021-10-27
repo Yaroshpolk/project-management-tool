@@ -7,7 +7,7 @@ const AuthRoute = ({ component: Component, ...props }) => {
     const context = React.useContext(AppContext);
 
     return (
-        <Route>
+        <Route path={props.path}>
             {() =>
                 context.logged ? <Redirect to='/' /> : <Component {...props} />
             }
