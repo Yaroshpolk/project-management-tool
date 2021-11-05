@@ -1,0 +1,17 @@
+@import "../templates/hoverable-item";
+
+@mixin button($color, $bg-color) {
+  border: 1px solid #0000;
+  border-radius: 5px;
+  outline: unset;
+  transition: opacity .5s;
+  background-color: $bg-color;
+  color: $color;
+&:hover {
+  @extend %hoverable-item;
+}
+&:active {
+  transition: opacity 0s;
+  opacity: .85;
+}
+}

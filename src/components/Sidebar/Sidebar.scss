@@ -1,0 +1,69 @@
+@import '../scss/mixins/flex-block';
+@import '../scss/mixins/button';
+@import "../scss/colors";
+
+.sidebar {
+  height: 100%;
+  background-color: $mainColor1;
+  width: 30px;
+  color: #fff;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 17px;
+  transition: width .4s, padding .4s;
+  position: relative;
+  @include flex-block(row, center, space-between);
+
+  &_opened {
+    padding: 30px;
+    width: 300px;
+  }
+
+  &__block {
+    height: 100%;
+    width: 100%;
+    @include flex-block(column, center, space-between);
+  }
+
+  &__logo {
+    margin: 0;
+    padding: 10px 5px;
+    text-align: center;
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    @include flex-block(column, center, flex-start);
+  }
+
+  &__link {
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
+    & .link {
+      color: #fff;
+    }
+  }
+
+  &__button {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include button(#fff, inherit);
+    &_active .sidebar__icon{
+        transform: rotate(180deg);
+    }
+  }
+
+  &__logout {
+    @include button(#fff, inherit);
+    border-radius: 0;
+    width: 100%;
+    padding: 13px 0;
+  }
+}

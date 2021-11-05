@@ -1,4 +1,4 @@
-@import '../scss/mixins/hoverable-item';
+@import '../scss/templates/hoverable-item';
 @import '../scss/colors';
 
 .link {
@@ -8,6 +8,6 @@
   border: 0;
   outline: 0;
   &:hover {
-    @include hoverable-item;
+    @extend %hoverable-item;
   }
 }

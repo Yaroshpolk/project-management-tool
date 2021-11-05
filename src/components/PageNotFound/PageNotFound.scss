@@ -1,10 +1,10 @@
-@import "../scss/mixins/flex-content-center";
+@import "../scss/mixins/flex-block";
 
 .pageNotFound {
   height: 100vh;
   text-align: center;
   padding: 0 20px;
-  @include flex-content-center(column);
+  @include flex-block(column, center, center);
 
   &__title {
     font-size: 92px;

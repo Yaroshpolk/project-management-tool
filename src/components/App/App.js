@@ -8,10 +8,11 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import AuthRoute from "../AuthRoute/AuthRoute";
 import { AppContext } from "../../contexts/AppContext";
 import { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
 
 function App() {
 
-    const [isLogged, setIsLogged] = useState(false);
+    const [isLogged, setIsLogged] = useState(true);
 
     const history = useHistory();
 
@@ -31,11 +32,13 @@ function App() {
           logged: isLogged,
       }}>
           <div className="App">
+              {isLogged && <Sidebar />}
               <Switch>
                   <ProtectedRoute
                       component = {Main}
                       path = '/'
-                      exact>
+                      exact
+                      >
                   </ProtectedRoute>
                   <AuthRoute
                       path = '/signin'

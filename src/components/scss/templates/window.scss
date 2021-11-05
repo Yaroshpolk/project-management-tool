@@ -1,6 +1,8 @@
 @import "../colors";
 
-@mixin window() {
+%window {
   box-shadow: 0px 0px 5px rgba(#000, .2);
   background-color: $windowColor;
+  border-radius: 5px;
+  overflow: hidden;
 }

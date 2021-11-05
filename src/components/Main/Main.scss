@@ -1,0 +1,29 @@
+@import '../scss/mixins/flex-block';
+@import "../scss/colors";
+
+.main {
+  width: 70%;
+  background-color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  @include flex-block(column, center, space-between);
+
+  &__header {
+    width: 100%;
+    height: 30%;
+    background-color: rgba($mainColor1, .85);
+    @include flex-block(column, center, center);
+  }
+
+  &__title {
+    color: #fff;
+    margin: 0;
+    font-size: 87px;
+  }
+
+  .tech {
+    width: 100%;
+    height: 70%;
+    @include flex-block(row, center, center);
+  }
+  }

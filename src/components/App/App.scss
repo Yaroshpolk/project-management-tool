@@ -1,8 +1,10 @@
 @import "../common/Form";
 @import "../common/Link";
+@import "../scss/mixins/flex-block";
 
 .App {
   width: 100%;
   height: 100vh;
   background-color: #eceff8;
+  @include flex-block(row, center, space-between);
 }

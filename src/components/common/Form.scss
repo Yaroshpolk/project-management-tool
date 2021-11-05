@@ -1,5 +1,6 @@
 @import '../scss/colors';
-@import '../scss/mixins/hoverable-item';
+@import '../scss/templates/hoverable-item';
+@import '../scss/mixins/button';
 
 .form {
   & label {
@@ -31,21 +32,9 @@
   &__submit {
     width: 100%;
     margin-top: 40px;
-    border: 1px solid #0000;
-    border-radius: 5px;
     padding: 15px 45px;
-    outline: 0;
-    color: #ffff;
     font-size: 18px;
-    background-color: $mainColor1;
-    transition: opacity .5s;
-    &:hover {
-      @include hoverable-item;
-    }
-    &:active {
-      transition: opacity 0s;
-      opacity: .85;
-    }
+    @include button(#fff, $mainColor1);
   }
 
   &__message {
