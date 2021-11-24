@@ -1,34 +1,31 @@
 import './Main.scss';
+import Login from "../Login/Login";
+import { useState } from "react";
+import Register from "../Register/Register";
 
 function Main() {
+    const [formStatus, setFormStatus] = useState(0);
+
+    const handleFormChange = () => {
+        setFormStatus(!formStatus);
+    }
+
     return (
         <section className='main'>
-            <div className="main__header">
-                <h1 className="main__title">
-                    Brello
-                </h1>
-            </div>
-            <div className="tech">
-                <div className="tech__block">
-                    <h2 className="tech__title">Frontend стек</h2>
-                    <ul className="tech__list">
-                        <li className="tech__item">HTML</li>
-                        <li className="tech__item">CSS</li>
-                        <li className="tech__item">Js</li>
-                        <li className="tech__item">Sass</li>
-                        <li className="tech__item">ReactJs</li>
-                        <li className="tech__item">Redux</li>
-                        <li className="tech__item">Git</li>
-                    </ul>
-                </div>
-                <div className="tech__block">
-                    <h2 className="tech__title">Backend стек</h2>
-                    <ul className="tech__list">
-                        <li className="tech__item">Java</li>
-                        <li className="tech__item">Spring</li>
-                        <li className="tech__item">PostgreSQL</li>
-                        <li className="tech__item">Git</li>
-                    </ul>
+           <div className="main__block main__block_about">
+
+           </div>
+            <div className="main__block main__block_auth">
+                {formStatus ? <Login/> : <Register/>}
+                <div className="main__link">
+                    {formStatus ?
+                        'Ещё нет аккаунта?' :
+                        'Уже есть аккаунт?'}
+                    <button onClick={handleFormChange} className={'link'}>
+                        {formStatus ?
+                            'Создать' :
+                            'Войти'}
+                    </button>
                 </div>
             </div>
         </section>

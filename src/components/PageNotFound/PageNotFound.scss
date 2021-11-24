@@ -2,6 +2,7 @@
 
 .pageNotFound {
   height: 100vh;
+  width: 100%;
   text-align: center;
   padding: 0 20px;
   @include flex-block(column, center, center);

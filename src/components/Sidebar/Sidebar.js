@@ -21,7 +21,7 @@ function Sidebar() {
                             </div>
                             <ul className="sidebar__links">
                                 <li className="sidebar__link">
-                                    <NavLink to='/' className='link' activeClassName='link_active'>Главная</NavLink>
+                                    <NavLink exact to='/' className='link' activeClassName='link_active'>Главная</NavLink>
                                 </li>
                                 <li className="sidebar__link">
                                     <NavLink to='/profile' className='link' activeClassName='link_active'>Профиль</NavLink>

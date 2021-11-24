@@ -2,40 +2,19 @@
 @import "../scss/templates/window";
 
 .login {
-  height: 100vh;
   width: 100%;
+  max-width: 550px;
   @include flex-block(column, center, center);
 
-  &__window {
-    width: 420px;
-    padding: 20px 30px;
-    @extend %window;
+  &__fieldset {
     @include flex-block(column, center, center);
-    @media screen and (max-width: 470px){
-      height: 100vh;
-      width: 100vw;
-    }
   }
 
   &__title {
-    text-align: center;
-    margin-top: 0;
     font-weight: normal;
-  }
-
-  &__form {
-    width: 100%;
-    @media screen and (max-width: 350px){
-      width: 96vw;
+    margin-top: 0;
+    @media screen and (max-width: 310px){
+      font-size: 1.5em;
     }
-    @media screen and (max-width: 290px){
-      width: 100vw;
-    }
-  }
-
-  &__fieldset {
-    width: 100%;
-    border: 0;
-    @include flex-block(column, center, center);
   }
 }

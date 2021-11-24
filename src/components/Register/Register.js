@@ -1,11 +1,22 @@
 import './Register.scss';
-import { Link } from "react-router-dom";
+import eyeOff from "../../images/eye-off.svg";
+import eye from "../../images/eye.svg";
+import {useState} from "react";
 
 function Register({ handleRegister }) {
+
+    const [passShowing, setPassShowing] = useState(false);
+
+    const handleShowPass = (evt) => {
+        evt.preventDefault();
+        const passInput = evt.target.closest('label').querySelector('input');
+        passInput.type === 'password' ? passInput.type = 'text' : passInput.type = 'password';
+        setPassShowing(!passShowing);
+    }
+
     return (
         <div className='register'>
-            <div className="register__window">
-                <h1 className="register__title">Регистрация</h1>
+            <h1 className="register__title">Регистрация</h1>
                 <form className="form register__form" name='formRegister' onSubmit={handleRegister}>
                     <fieldset className='register__fieldset'>
                         <label htmlFor='userName'>
@@ -28,7 +39,7 @@ function Register({ handleRegister }) {
                                 name='email'
                                 required />
                         </label>
-                        <label htmlFor='userEmail'>
+                        <label htmlFor='userPassword'>
                             <input
                                 className='form__input'
                                 type="password"
@@ -37,16 +48,17 @@ function Register({ handleRegister }) {
                                 minLength='6'
                                 name='password'
                                 required/>
+                            <button className='link form__show-pass' onClick={handleShowPass}>
+                                <img src={passShowing ? eyeOff : eye} alt="Показать пароль"/>
+                            </button>
                         </label>
-                        <input
-                            className='form__submit'
-                            type="submit"
-                            value='Зарегистрироваться'
-                            name='submit'/>
-                        <Link to='/signin' className='link form__message'>Уже зарегистрированы? Войти</Link>
                     </fieldset>
+                    <input
+                        className='form__submit'
+                        type="submit"
+                        value='Зарегистрироваться'
+                        name='submit'/>
                 </form>
-            </div>
         </div>
     );
 }

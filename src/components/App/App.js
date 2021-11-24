@@ -8,7 +8,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import AuthRoute from "../AuthRoute/AuthRoute";
 import { AppContext } from "../../contexts/AppContext";
 import { useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import WorkSpaces from "../WorkSpaces/WorkSpaces";
 
 function App() {
 
@@ -32,12 +32,16 @@ function App() {
           logged: isLogged,
       }}>
           <div className="App">
-              {isLogged && <Sidebar />}
               <Switch>
-                  <ProtectedRoute
-                      component = {Main}
-                      path = '/'
+                  <Route
+                      path='/'
                       exact
+                  >
+                      <Main />
+                  </Route>
+                  <ProtectedRoute
+                      path = '/workspaces'
+                      component = {WorkSpaces}
                       >
                   </ProtectedRoute>
                   <AuthRoute
