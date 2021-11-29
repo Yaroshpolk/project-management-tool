@@ -1,10 +1,12 @@
 import './App.scss';
-import {Switch, Route, useHistory} from "react-router-dom";
-import PageNotFound from "../PageNotFound/PageNotFound";
-import Main from "../Main/Main";
-import { AppContext } from "../../contexts/AppContext";
 import { useState } from "react";
-
+import { Switch, Route, useHistory } from "react-router-dom";
+import PageNotFound from "../PageNotFound/PageNotFound";
+import Auth from "../Auth/Auth";
+import { AppContext } from "../../contexts/AppContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import Workspaces from "../Workspaces/Workspaces";
+import Main from "../Main/Main";
 
 function App() {
 
@@ -20,7 +22,7 @@ function App() {
     const handleLogin = (evt) => {
         evt.preventDefault();
         setIsLogged(true);
-        history.push('/workspaces');
+        history.push('/main');
     }
 
   return (
@@ -30,8 +32,16 @@ function App() {
           <div className="App">
               <Switch>
                   <Route path='/' exact>
-                      <Main />
+                      <Auth
+                      handleLogin={handleLogin}
+                      handleRegister={handleRegister}
+                      />
                   </Route>
+                  <ProtectedRoute
+                  path='/main'
+                  component={Main}
+                  >
+                  </ProtectedRoute>
                   <Route path = '*'>
                       <PageNotFound />
                   </Route>

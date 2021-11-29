@@ -1,0 +1,52 @@
+@import "../scss/colors";
+
+.sidebar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $mainColor1;
+
+  &__logo {
+    padding: 23px;
+    background-color: rgba($mainColor1, 1);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+
+    &-item {
+      width: 100%;
+      text-align: center;
+
+      &:last-child {
+        margin-top: auto;
+      }
+    }
+  }
+
+  &__btn {
+    display: block;
+    padding: 25px 30px;
+
+    &_active {
+      background-color: rgba(#000, .1);
+    }
+  }
+}
